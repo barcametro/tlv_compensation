@@ -1,0 +1,64 @@
+# Databricks Asset Bundle — deploys the pipeline as a scheduled job on serverless.
+#
+#   databricks auth login --host https://<workspace>.cloud.databricks.com
+#   databricks bundle validate
+#   databricks bundle deploy -t dev        # schedule paused, job name prefixed "[dev <you>]"
+#   databricks bundle run tlv_compensation -t dev
+#   databricks bundle deploy -t prod       # same job, schedule live
+bundle:
+  name: tlv_compensation
+
+variables:
+  catalog: { description: Unity Catalog catalog, default: workspace }
+  schema:  { description: Target schema,          default: tlv }
+
+sync:
+  exclude:            # outputs are rebuilt by the job; don't upload the local Parquet run
+    - output/**
+    - "**/__pycache__/**"
+    - .pytest_cache/**
+
+targets:
+  dev:
+    mode: development   # prefixes names, pauses schedules, deploys under your user folder
+    default: true
+  prod:
+    # No `mode: production`: that mode requires a service principal or explicit run_as and
+    # permissions, which Free Edition can't provide. Deployed to its own folder so dev and
+    # prod copies never overwrite each other. Schedules stay live in this target.
+    workspace:
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/prod
+
+resources:
+  jobs:
+    tlv_compensation:
+      name: tlv-street-closure-compensation
+      # Daily 06:00 Israel time. Bronze rebuilds from whatever is in the landing volume,
+      # so files landed by the external downloader are picked up on the next run.
+      schedule:
+        quartz_cron_expression: "0 0 6 * * ?"
+        timezone_id: Asia/Jerusalem
+      max_concurrent_runs: 1
+      parameters:
+        - { name: catalog,   default: "${var.catalog}" }
+        - { name: schema,    default: "${var.schema}" }
+        - { name: volume,    default: landing }
+        - { name: repo_root, default: "${workspace.file_path}" }   # where the bundle synced the repo
+      # No cluster spec: every task runs on serverless (the only option on Free Edition).
+      tasks:
+        - task_key: setup
+          notebook_task: { notebook_path: ./notebooks/00_setup.py }
+        - task_key: bronze
+          depends_on: [{ task_key: setup }]
+          notebook_task: { notebook_path: ./notebooks/01_bronze.py }
+        - task_key: silver
+          depends_on: [{ task_key: bronze }]
+          notebook_task: { notebook_path: ./notebooks/02_silver.py }
+        - task_key: gold
+          depends_on: [{ task_key: silver }]
+          notebook_task: { notebook_path: ./notebooks/03_gold.py }
+        - task_key: quality
+          depends_on: [{ task_key: gold }]
+          notebook_task: { notebook_path: ./notebooks/04_quality.py }
+      # email_notifications:
+      #   on_failure: [you@example.com]

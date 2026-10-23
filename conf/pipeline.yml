@@ -1,0 +1,25 @@
+# Tel Aviv street-closure compensation pipeline — configuration.
+# Every business rule from the brief is a parameter here, not a literal in code.
+
+compensation:
+  year: 2023
+  rate_ils_per_sqm_per_day: 100     # rule 3: 100 ILS per 1 sqm (shetach) per day
+  daily_cap_ils: 10000              # rule 4: max 10,000 ILS per business per day
+  # Model B only: closed hours are weighted by their overlap with trading hours
+  trading_hours_start: "08:00"
+  trading_hours_end: "20:00"
+
+sources:
+  closures_csv: landing/closures/rechov_sagur.csv
+  businesses_dir: landing/businesses          # run=<UTC timestamp>/businesses_page_*.json
+  category_map: conf/category_map.csv
+
+storage:
+  # local: parquet files under base_path.  databricks: Unity Catalog Delta tables.
+  format: parquet                  # parquet | delta
+  base_path: output
+  catalog: workspace               # used when format = delta
+  schema: tlv
+
+quality:
+  min_street_match_rate_2023: 0.90

@@ -1,0 +1,487 @@
+{
+  "year": 2023,
+  "kpi": {
+    "businesses_affected": 12165,
+    "streets_compensated": 94,
+    "street_days": 8408,
+    "business_days": 1429846,
+    "total_model_a": 8961475700.0,
+    "total_model_b": 5128650220.67,
+    "model_b_pct_of_a": 57.2,
+    "cost_per_sqm_model_a": 1384.0,
+    "businesses_at_cap": 5164,
+    "pct_businesses_at_cap": 42.4,
+    "pct_spend_at_cap": 57.2,
+    "median_business_model_a": 142500.0,
+    "median_days_affected": 25,
+    "top5_street_share_pct": 62.4,
+    "established_after_year": {
+      "businesses": 3437,
+      "total_model_a": 2440542600.0
+    },
+    "largest_single_business": {
+      "business_id": 68,
+      "street": "אבן גבירול",
+      "category": "Offices",
+      "area_sqm": 150,
+      "days": 365,
+      "total_model_a": 3650000.0
+    }
+  },
+  "model_a_to_b": [
+    {
+      "step": "Model A — literal rule",
+      "value": 8961475700.0
+    },
+    {
+      "step": "Non-trading premises",
+      "value": -955259900.0
+    },
+    {
+      "step": "Days before business existed",
+      "value": -2455720100.0
+    },
+    {
+      "step": "Hours outside trading time",
+      "value": -421845479.3299999
+    },
+    {
+      "step": "Model B",
+      "value": 5128650220.67
+    }
+  ],
+  "monthly": [
+    {
+      "month": "2023-01",
+      "a": 1041776000.0,
+      "b": 600397040.99,
+      "businesses": 5727
+    },
+    {
+      "month": "2023-02",
+      "a": 1000609100.0,
+      "b": 574196450.29,
+      "businesses": 11559
+    },
+    {
+      "month": "2023-03",
+      "a": 998940400.0,
+      "b": 582809773.48,
+      "businesses": 5882
+    },
+    {
+      "month": "2023-04",
+      "a": 941811000.0,
+      "b": 551469489.6,
+      "businesses": 5087
+    },
+    {
+      "month": "2023-05",
+      "a": 930616200.0,
+      "b": 546439714.15,
+      "businesses": 5690
+    },
+    {
+      "month": "2023-06",
+      "a": 817635000.0,
+      "b": 467513670.64,
+      "businesses": 5285
+    },
+    {
+      "month": "2023-07",
+      "a": 637834300.0,
+      "b": 356515585.74,
+      "businesses": 3232
+    },
+    {
+      "month": "2023-08",
+      "a": 637834300.0,
+      "b": 358821485.58,
+      "businesses": 3232
+    },
+    {
+      "month": "2023-09",
+      "a": 540414000.0,
+      "b": 301887252.51,
+      "businesses": 2869
+    },
+    {
+      "month": "2023-10",
+      "a": 551551700.0,
+      "b": 309641385.43,
+      "businesses": 2869
+    },
+    {
+      "month": "2023-11",
+      "a": 517488000.0,
+      "b": 291702485.7,
+      "businesses": 2764
+    },
+    {
+      "month": "2023-12",
+      "a": 344965700.0,
+      "b": 187255886.56,
+      "businesses": 1944
+    }
+  ],
+  "top_streets": [
+    {
+      "street": "אבן גבירול",
+      "closed_days": 365,
+      "businesses": 806,
+      "a": 1664947500.0,
+      "b": 1109862300.0,
+      "cost_per_sqm_a": 8514.66
+    },
+    {
+      "street": "אלנבי",
+      "closed_days": 331,
+      "businesses": 764,
+      "a": 1443391700.0,
+      "b": 909671400.0,
+      "cost_per_sqm_a": 11612.26
+    },
+    {
+      "street": "הרצל",
+      "closed_days": 365,
+      "businesses": 452,
+      "a": 1220487000.0,
+      "b": 696894200.0,
+      "cost_per_sqm_a": 7895.4
+    },
+    {
+      "street": "רוטשילד",
+      "closed_days": 362,
+      "businesses": 304,
+      "a": 850881000.0,
+      "b": 168744567.81,
+      "cost_per_sqm_a": 5857.96
+    },
+    {
+      "street": "הירקון",
+      "closed_days": 152,
+      "businesses": 354,
+      "a": 415750400.0,
+      "b": 302265200.0,
+      "cost_per_sqm_a": 994.92
+    },
+    {
+      "street": "שדה יצחק",
+      "closed_days": 176,
+      "businesses": 307,
+      "a": 371923200.0,
+      "b": 228666400.0,
+      "cost_per_sqm_a": 2132.11
+    },
+    {
+      "street": "אילת",
+      "closed_days": 179,
+      "businesses": 246,
+      "a": 332080800.0,
+      "b": 199005200.0,
+      "cost_per_sqm_a": 6206.19
+    },
+    {
+      "street": "יפו",
+      "closed_days": 179,
+      "businesses": 184,
+      "a": 236494800.0,
+      "b": 162158900.0,
+      "cost_per_sqm_a": 9170.73
+    },
+    {
+      "street": "פרנקל ידידיה",
+      "closed_days": 335,
+      "businesses": 112,
+      "a": 228135000.0,
+      "b": 122811600.0,
+      "cost_per_sqm_a": 19855.09
+    },
+    {
+      "street": "יפת",
+      "closed_days": 123,
+      "businesses": 274,
+      "a": 217771500.0,
+      "b": 137203800.0,
+      "cost_per_sqm_a": 2918.05
+    }
+  ],
+  "closure_types": [
+    {
+      "type_he": "נת\"ע – הרכבת הקלה",
+      "type": "Light rail works (NTA)",
+      "streets": 20,
+      "a": 3852963700.0,
+      "b": 2466501624.9
+    },
+    {
+      "type_he": "אחר",
+      "type": "Other (long works)",
+      "streets": 13,
+      "a": 3593585100.0,
+      "b": 1767705999.69
+    },
+    {
+      "type_he": "שיפור תשתיות",
+      "type": "Infrastructure upgrade",
+      "streets": 23,
+      "a": 1473787000.0,
+      "b": 880782996.16
+    },
+    {
+      "type_he": "ארוע מרתון",
+      "type": "Marathon event",
+      "streets": 41,
+      "a": 40252600.0,
+      "b": 13496425.0
+    },
+    {
+      "type_he": "הנחת קו מים",
+      "type": "Water main",
+      "streets": 1,
+      "a": 448300.0,
+      "b": 21799.92
+    },
+    {
+      "type_he": "קרצוף וסלילה",
+      "type": "Milling & paving",
+      "streets": 2,
+      "a": 439000.0,
+      "b": 141375.0
+    }
+  ],
+  "non_trading": [
+    {
+      "group": "storage_parking",
+      "businesses": 696,
+      "a": 319506300.0
+    },
+    {
+      "group": "closed",
+      "businesses": 193,
+      "a": 206470200.0
+    },
+    {
+      "group": "technical_land",
+      "businesses": 443,
+      "a": 191457000.0
+    },
+    {
+      "group": "municipal_public",
+      "businesses": 175,
+      "a": 136873100.0
+    },
+    {
+      "group": "places_of_worship",
+      "businesses": 80,
+      "a": 100953300.0
+    }
+  ],
+  "top_categories": [
+    {
+      "category": "Cafes and Restaurants",
+      "eligible": true,
+      "businesses": 750,
+      "a": 686475600.0,
+      "b": 406344697.9
+    },
+    {
+      "category": "Offices",
+      "eligible": true,
+      "businesses": 1237,
+      "a": 642606800.0,
+      "b": 321679093.95
+    },
+    {
+      "category": "Clothing & Textile Retail",
+      "eligible": true,
+      "businesses": 727,
+      "a": 631631700.0,
+      "b": 444924403.78
+    },
+    {
+      "category": "General Retail",
+      "eligible": true,
+      "businesses": 687,
+      "a": 527914200.0,
+      "b": 221803610.85
+    },
+    {
+      "category": "Manufacturing & Industry",
+      "eligible": true,
+      "businesses": 316,
+      "a": 281489600.0,
+      "b": 197058340.23
+    },
+    {
+      "category": "General Services",
+      "eligible": true,
+      "businesses": 458,
+      "a": 269742100.0,
+      "b": 158359218.89
+    },
+    {
+      "category": "Law Office",
+      "eligible": true,
+      "businesses": 463,
+      "a": 261047100.0,
+      "b": 167313913.2
+    },
+    {
+      "category": "Hotel Apartment",
+      "eligible": true,
+      "businesses": 150,
+      "a": 219245800.0,
+      "b": 162167343.75
+    },
+    {
+      "category": "Planning, Engineering & Real Estate Office",
+      "eligible": true,
+      "businesses": 275,
+      "a": 202069500.0,
+      "b": 129012538.47
+    },
+    {
+      "category": "Artist Studio",
+      "eligible": true,
+      "businesses": 201,
+      "a": 186560900.0,
+      "b": 111314358.97
+    },
+    {
+      "category": "Warehouse",
+      "eligible": false,
+      "businesses": 320,
+      "a": 185938800.0,
+      "b": 0.0
+    },
+    {
+      "category": "Furniture Retail",
+      "eligible": true,
+      "businesses": 72,
+      "a": 178904700.0,
+      "b": 134048316.77
+    }
+  ],
+  "dq": [
+    {
+      "check": "closures rejected: unparseable_start_date",
+      "layer": "silver",
+      "observed": "0",
+      "expected": "info",
+      "status": "pass"
+    },
+    {
+      "check": "closures with end date imputed from start",
+      "layer": "silver",
+      "observed": "6",
+      "expected": "info",
+      "status": "pass"
+    },
+    {
+      "check": "sw_laila values corrupted by unescaped commas",
+      "layer": "silver",
+      "observed": "152",
+      "expected": "info",
+      "status": "pass"
+    },
+    {
+      "check": "2023 closure streets matched to businesses",
+      "layer": "gold",
+      "observed": "93.1%",
+      "expected": ">= 90%",
+      "status": "pass"
+    },
+    {
+      "check": "one row per business per day",
+      "layer": "gold",
+      "observed": "0",
+      "expected": "0",
+      "status": "pass"
+    },
+    {
+      "check": "all days inside 2023",
+      "layer": "gold",
+      "observed": "0",
+      "expected": "0",
+      "status": "pass"
+    },
+    {
+      "check": "daily compensation within [0, cap]",
+      "layer": "gold",
+      "observed": "0",
+      "expected": "0",
+      "status": "pass"
+    },
+    {
+      "check": "model B never exceeds model A",
+      "layer": "gold",
+      "observed": "0",
+      "expected": "0",
+      "status": "pass"
+    },
+    {
+      "check": "totals reconcile: business-days = per-business = per-street",
+      "layer": "gold",
+      "observed": "8961475700.00 / 8961475700.00 / 8961475700.00",
+      "expected": "equal",
+      "status": "pass"
+    },
+    {
+      "check": "businesses landed == server count",
+      "layer": "bronze",
+      "observed": "37356",
+      "expected": "37356",
+      "status": "pass"
+    },
+    {
+      "check": "closures rows landed > 0",
+      "layer": "bronze",
+      "observed": "2006",
+      "expected": "> 0",
+      "status": "pass"
+    },
+    {
+      "check": "business_id unique",
+      "layer": "silver",
+      "observed": "0",
+      "expected": "0",
+      "status": "pass"
+    },
+    {
+      "check": "business categories mapped",
+      "layer": "silver",
+      "observed": "0",
+      "expected": "0",
+      "status": "pass"
+    },
+    {
+      "check": "businesses with area <= 0 or null",
+      "layer": "silver",
+      "observed": "1",
+      "expected": "info",
+      "status": "pass"
+    },
+    {
+      "check": "closure start dates parsed",
+      "layer": "silver",
+      "observed": "0",
+      "expected": "0",
+      "status": "pass"
+    },
+    {
+      "check": "closures rejected: no_valid_street",
+      "layer": "silver",
+      "observed": "133",
+      "expected": "info",
+      "status": "pass"
+    },
+    {
+      "check": "closures rejected: duplicate_event",
+      "layer": "silver",
+      "observed": "67",
+      "expected": "info",
+      "status": "pass"
+    }
+  ]
+}

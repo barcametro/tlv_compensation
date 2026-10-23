@@ -1,0 +1,168 @@
+﻿category_en,category_he,model_b_eligible,exclusion_group,businesses,total_area_sqm,total_model_a,total_model_b
+Market Stall,דוכנים למכירת טובין,True,,204,1963,29326800.00,24378433.84
+Hotel (3-star),בית מלון 3 כוכבים,True,,43,104026,64060000.00,32570832.13
+Recording Studio,אולפן הקלטות,True,,74,4731,65664900.00,34358101.18
+Hotel Apartment,דירה במלון,True,,150,22614,219245800.00,162167343.75
+Car Rental,השכרת רכב,True,,7,1193,7573200.00,7573200.00
+Bonded Warehouse,מחסני ערובה,False,storage_parking,1,1010,1520000.00,0.00
+Importer-Exporter,יבואנים-יצואנים,True,,1,151,10000.00,5000.00
+Dance School,בתי ספר למחול,True,,2,189,3676000.00,3066000.00
+"Planning, Engineering & Real Estate Office","משרד לתכנון, הנדסה ונדל""ן",True,,275,246945,202069500.00,129012538.47
+Embassy & Consulate,שגרירויות וקונסוליות,False,municipal_public,36,28816,18132700.00,0.00
+Household Department Store,כל בו לבית,True,,78,139691,69551700.00,58665942.68
+Public School,בתי ספר בפיקוח,False,municipal_public,42,230204,37001600.00,0.00
+Printing House,בית דפוס,True,,54,9360,44355000.00,41073556.52
+Closed Office,משרד סגור,False,closed,40,28940,49001900.00,0.00
+Land Ancillary to Building,שטח קרקע שעיקר שימושו עם המבנה,False,technical_land,34,6426,17587800.00,0.00
+Dental Technician,טכנאות שיניים,True,,1,674,10000.00,5000.00
+Fuel Station,תחנות דלק,True,,19,24831,11190000.00,10905000.00
+Food Retail,מסחר במזון,True,,171,14654,126396200.00,67099190.55
+Real Estate Brokerage,משרד תיווך,True,,56,9415,41304400.00,20789712.36
+Leisure & Sports Goods Retail,מסחר בצרכי פנאי וספורט,True,,35,7953,16785800.00,13945608.42
+Private Educational Institution,מוסדות חינוך לא בפיקוח,True,,17,23836,14939100.00,7023333.63
+Wood Manufacturing,תעשית עץ,True,,5,678,6675500.00,6494666.77
+Clothing & Textile Retail,מסחר בביגוד וטקסטיל,True,,727,122923,631631700.00,444924403.78
+Offices,משרדים,True,,1237,881260,642606800.00,321679093.95
+Warehouse,מחסנים כלליים,False,storage_parking,320,71396,185938800.00,0.00
+Manufacturing & Industry,תעשייה ומלאכה,True,,316,549735,281489600.00,197058340.23
+Kiosk,קיוסקים,True,,98,4790,45990900.00,32515701.52
+Dental Clinic,מרפאות שיניים,True,,61,7601,25709200.00,20263782.11
+Health Fund Clinic,קופות חולים,True,,9,7986,15340000.00,15198333.84
+Grocery Store,חנות מכולת,True,,51,5108,44441600.00,31290534.96
+Art & Crafts Retail,מסחר בדברי אומנות,True,,46,4084,42117000.00,23941232.13
+Ice Cream Shop,גלידריה,True,,24,1622,17579700.00,6575400.00
+Retirement Home,בית אבות,True,,3,1565,2850000.00,2850000.00
+Free Parking Lot,מגרש חניה ללא תשלום,False,storage_parking,60,21285,44687900.00,0.00
+Wholesale & Retail Trade,מסחר סיטונאי וקימעונאי,True,,6,410,7958200.00,3914200.00
+Transformer Substation,שנאים תחנת משנה,False,technical_land,1,3028,10000.00,0.00
+Bank Training Centre,בנקים הדרכה,True,,1,736,3650000.00,0.00
+Water Treatment Facility,מתקן לטהור מים,False,technical_land,1,1370,3650000.00,0.00
+Supermarket,סופר מרקט,True,,93,33471,128098300.00,99599067.49
+Currency Exchange,"שרותי מט""ח",True,,27,1036,20307000.00,14874800.00
+Apparel Manufacturing,תעשית הלבשה,True,,104,13094,129957800.00,108463332.44
+Bags & Luggage Retail,מסחר בתיקים ומזוודות,True,,18,1588,21204900.00,18813800.00
+Subsidiary Company,חברת בת,True,,14,11896,18428400.00,13249164.26
+Post Office,בתי דואר,True,,5,5479,7100000.00,6076667.68
+Travel Agency,סוכנויות נסיעות,True,,31,11886,24317500.00,11658416.00
+Import & Export Office,משרד ייבוא וייצוא,True,,17,7687,10962800.00,4764979.94
+Paid Parking Lot,מגרש חניה בתשלום,True,,39,163102,35802300.00,26530083.14
+Private Kindergarten,גני ילדים פרטיים,True,,42,17351,47876800.00,26070234.41
+Paid Indoor Parking,חניונים במבנה בתשלום,True,,46,264915,37940000.00,21049993.98
+Investment Firm,חברות ובתי השקעות,True,,15,7918,11006900.00,5385832.13
+Municipal Department,מחלקות העירייה,False,municipal_public,71,44161,62537900.00,0.00
+Gym & Sports Hall,מכוני כושר ואולמות ספורט,True,,94,33620,72969800.00,38860480.36
+Financial Services Office,משרד לשירותים פיננסים,True,,283,196285,147908100.00,96507846.30
+Artist Studio,חדר עבודה של אמן,True,,201,12999,186560900.00,111314358.97
+Hotel (1-star),בית מלון 1 כוכבים,True,,18,19306,23296900.00,19946900.00
+Watchmaker & Goldsmith,שעונים וצורפים,True,,37,1941,30505600.00,25191375.19
+Photography Studio,צילום ופיתוח תמונות,True,,16,4004,17882400.00,14544150.00
+House of Prayer,בתי תפילה,False,places_of_worship,15,5507,19222600.00,0.00
+Garage,מוסך,True,,80,53994,76480500.00,66941167.11
+Furniture & Carpentry,רהיטים נגרות,True,,31,5627,31164700.00,27445024.57
+Metal Products Manufacturing,תעשית מ. מתכת,True,,21,6886,24427600.00,17756999.63
+Beverage Retail,מסחר במשקאות,True,,47,4021,56636800.00,28788550.00
+Ceramics Manufacturing,תעשית קרמיקה,True,,5,511,7680300.00,5410000.00
+Smoking Supplies Retail,מסחר בצורכי עישון,True,,22,1093,14630500.00,9199617.87
+Free Indoor Parking,חניונים במבנה ללא תשלום,False,storage_parking,315,39876,87359600.00,0.00
+Recruitment Agency,"משרד השמה וכ""א",True,,95,106597,80937400.00,47863071.40
+Bank Headquarters,הנהלה של בנק,True,,11,23783,4916100.00,4863050.00
+Occupied Land,קרקע תפוסה,False,technical_land,26,28969,27812700.00,0.00
+Indoor Swimming Pool,בריכת שחיה מבנה,True,,2,2687,903700.00,903700.00
+Tyre Repair,תיקון צמיגים,True,,7,1924,3327500.00,3293333.33
+Food Manufacturing,תעשית מזון,True,,8,2025,3020200.00,2995200.00
+Glass Manufacturing,תעשית זכוכית,True,,2,1024,3580000.00,1790000.00
+Youth Movement,תנועות נוער,True,,3,1924,3530000.00,2471667.66
+Beauty Salon,מכוני יופי,True,,148,8948,82267800.00,44348317.84
+Synagogue,בתי כנסת,False,places_of_worship,60,37904,76570700.00,0.00
+Pet Supplies,מסחר וציוד לבעלי חיים,True,,31,3563,35666100.00,19162100.00
+Advertising Agency,משרדי פירסום,True,,85,32527,70453200.00,38248436.85
+Vehicle Parts & Accessories,חלקי חילוף ואביזרים לכלי תחבורה,True,,32,6965,28682100.00,26003732.13
+Footwear Manufacturing,תעשית נעליים,True,,21,2832,20827400.00,20711916.53
+Bicycle Repair,תיקון אופניים,True,,4,267,1011900.00,991700.00
+Leather Goods Manufacturing,תעשית מוצרי עור,True,,3,198,2130400.00,2127700.00
+Carpet Retail,מסחר בשטיחים,True,,8,490,9916700.00,3656100.00
+Bathhouse,בית מרחץ,True,,2,172,1400200.00,5000.00
+Student Dormitory,מעון לתלמידים עולים,True,,1,590,890000.00,593333.63
+General Services,שרותים כללי,True,,458,221015,269742100.00,158359218.89
+Florist,מסחר בפרחים,True,,28,1443,22151300.00,14823517.17
+Office Equipment Manufacturing,ת. ציוד משרדי,True,,2,100,16800.00,7650.00
+Toys & Gifts Retail,מסחר בצעצועים ומתנות,True,,54,7651,31466300.00,29697817.68
+Upholsterer,מרפדיות,True,,9,914,10787100.00,7163766.77
+Studios,אולפנים,True,,1,88,220000.00,220000.00
+Children's Goods Retail,מסחר בציוד לילדים,True,,9,1550,17683100.00,16360900.00
+Not in Use,לא בשימוש,False,closed,1,132,1520000.00,0.00
+Veterinary Clinic,מרפאות לבעלי חיים,True,,14,907,12147800.00,7886650.00
+Optician,מסחר באופטיקה,True,,57,3214,25063300.00,22698450.00
+Bakery,מסחר בדברי מאפה,True,,39,3053,32249700.00,24982116.56
+Electrical Goods Retail,מסחר במוצרי וצרכי חשמל,True,,66,9983,70883000.00,65666433.84
+Private School,בתי ספר פרטיים,True,,4,794,5566800.00,5020000.00
+Library,ספריות,False,municipal_public,1,35,1158500.00,0.00
+Nightclub,מועדוני לילה,True,,1,142,10000.00,5000.00
+Dance Club,מועדוני ריקודים,True,,1,409,3310000.00,3310000.00
+Software Companies,בתי תוכנה,True,,358,368831,154889600.00,55879395.28
+Technical Area,שטחים טכניים,False,technical_land,22,7234,12440600.00,0.00
+Vehicle Sales,מסחר בכלי תחבורה,True,,70,32524,61413800.00,31696983.84
+Bakery Production,יצור דברי מאפה,True,,17,4072,19958500.00,16300900.00
+Geriatric Nursing Facility,מוסד סיעודי גריאטרי,True,,2,6010,3930000.00,2413334.54
+Car Wash,שטיפת כלי רכב,True,,8,6012,77800.00,28900.00
+Sports & Leisure Centre,מרכז ספורט ונופש,True,,3,52533,770000.00,760000.00
+Cafes and Restaurants,בתי קפה ומסעדות,True,,750,136333,686475600.00,406344697.90
+Building Supplies Retail,מסחר בצרכי בניין וציוד טכני,True,,85,116696,78660900.00,68462850.51
+Bookstore,מסחר בספרים,True,,28,2806,34166500.00,29135150.00
+Law Office,משרד עורכי דין,True,,463,132627,261047100.00,167313913.20
+Electrical Equipment Manufacturing,תעשית ציוד חשמלי,True,,4,139,2617600.00,2555466.16
+Dance Hall,אולמות ריקודים,True,,13,23866,23748000.00,15670832.13
+Fruit & Vegetable Store,מסחר בפירות וירקות,True,,45,2675,32951100.00,20805634.54
+Kindergarten Yard,חצר המשמשת גני ילדים,False,technical_land,2,173,893000.00,0.00
+Vending Machine,מכונה למכירת טובין,True,,3,54,78200.00,77700.00
+Church,בתי תפילה נוצרים,False,places_of_worship,4,7204,4900000.00,0.00
+Pharmacy,בית מרקחת,True,,47,15185,63554700.00,59108267.68
+Paramedical Practice,משרד פארה רפואי,True,,50,30441,38443000.00,25585450.00
+Leisure & Entertainment Venue,מקומות לבילוי ופנאי,True,,37,8050,41154200.00,21915600.00
+Snack Bar,מזנונים,True,,92,17089,72504700.00,41980816.16
+IT Company,משרד מחשוב וטכנולוגיה,True,,180,67413,119782100.00,44311377.20
+Associations & Organisations,אגודים ואירגונים,True,,85,97926,76790100.00,49537828.52
+Insurance Agent,סוכני ביטוח,True,,48,11311,23870300.00,21968932.51
+Performance Venue,אולמות למופעי תרבות,True,,10,13306,18640000.00,18640000.00
+Municipal Kindergarten,גני ילדים עירוניים,False,municipal_public,12,16360,7582400.00,0.00
+Manufacturing (Closed),תעשיה ומלאכה - סגור,False,closed,12,1050,9724400.00,0.00
+Metalwork Shop,מסגריות,True,,22,3972,22456700.00,13990800.37
+Theatre,תיאטרון,True,,13,31781,14950000.00,9345000.00
+Lottery Kiosk,דוכני מפעל הפיס,True,,24,186,1876000.00,1868250.00
+Plastic Products Manufacturing,תעשית מ. פלסטיק,True,,6,2229,11151000.00,9581500.00
+Building Materials Manufacturing,תעשית חומרי בניין,True,,2,515,20000.00,10000.00
+Cemetery,בתי עלמין,False,technical_land,2,10157,20000.00,0.00
+Private Clinic,מרפאה פרטית,True,,141,34240,66664600.00,42936389.00
+Municipal Company,חברות עירוניות,False,municipal_public,3,132984,30000.00,0.00
+Bank Branch,סניף בנק,True,,33,17529,26531800.00,24057332.13
+General Retail,מסחר קמעוני כללי,True,,687,171391,527914200.00,221803610.85
+Office Supplies Retail,מסחר בצורכי משרד,True,,29,2869,26775900.00,17598383.12
+Hotel (5-star),בית מלון 5 כוכבים,True,,18,408181,24670000.00,19436664.26
+Hotel (4-star),בית מלון 4 כוכבים,True,,16,101667,24808400.00,19336732.13
+Private Museum,מוזאון פרטי,True,,4,15199,1550000.00,15000.00
+Cinema,בתי קולנוע,True,,4,10848,3340000.00,3325000.00
+Insurance Company,חברות ביטוח,True,,2,2676,20000.00,10000.00
+Hair Salon,מספרה,True,,188,8351,94302700.00,69624465.63
+Computer & Mobile Retail,מסחר במחשבים וטלפונים,True,,99,9643,76994900.00,56260783.84
+Event Hall,אולם ארועים,True,,18,87495,5060000.00,3678125.00
+Shoe Store,מסחר בנעליים,True,,83,8268,43401500.00,34402632.32
+Laundry,מכבסה,True,,33,1281,21162500.00,14799632.32
+Furniture Retail,מסחר ברהיטים,True,,72,13882,178904700.00,134048316.77
+Closed Store,חנות סגורה,False,closed,140,8482,146223900.00,0.00
+Juice Bar,הכנה וממכר מיצים,True,,21,1008,11820300.00,8250950.00
+Courier & Transport Office,משרד שליחויות ותובלה,True,,21,4566,7722400.00,5206332.13
+Public Museum,מוזיאון ציבורי,False,municipal_public,6,5074,7280000.00,0.00
+Appliance Repair,תיקון מכשירים שונים,True,,13,1842,5505900.00,5466825.37
+Book Publishing,הוצאה לאור ספרים,True,,1,115,390000.00,390000.00
+Jewellery Retail,מסחר בתכשיטים,True,,183,13168,147150600.00,119225412.93
+Hotel (2-star),בית מלון 2 כוכבים,True,,31,32200,42228700.00,16223100.00
+Transformer Room,חדר טרנספורמציה,False,technical_land,355,17148,129042900.00,0.00
+Cosmetics Retail,מסחר במוצרי קוסמטיקה,True,,65,48981,19480900.00,13408450.00
+Fishmonger & Butcher,חנויות דגים ואיטליזים,True,,44,4050,33276800.00,30604265.63
+Gymnastics Hall,אולמות התעמלות,True,,9,966,10533000.00,4361632.13
+Mosque,מסגדים,False,places_of_worship,1,3053,260000.00,0.00
+Cosmetics Manufacturing,תעשית תמרוקים,True,,3,159,2157400.00,21300.00
+Youth Hostel,אכסניות נוער,True,,3,1596,1196200.00,1183700.00
+Public Institution,מוסדות ציבור,False,municipal_public,4,992,3150000.00,0.00
+Film Studio,אולפני הסרטה,True,,1,53,932800.00,932800.00
+Medical Lab,מכונים ומעבדות רפואיות,True,,8,2208,13638700.00,12735600.00

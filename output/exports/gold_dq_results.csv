@@ -1,0 +1,18 @@
+﻿check,layer,observed,expected,status,detail,run_at
+closures rejected: unparseable_start_date,silver,0,info,pass,,2026-10-21 13:28:53.525006
+closures with end date imputed from start,silver,6,info,pass,,2026-10-21 13:28:53.525006
+sw_laila values corrupted by unescaped commas,silver,152,info,pass,night_flag set to NULL on these rows,2026-10-21 13:28:53.525006
+2023 closure streets matched to businesses,gold,93.1%,>= 90%,pass,7 unmatched of 101,2026-10-21 13:28:53.525006
+one row per business per day,gold,0,0,pass,"brief, rule 2",2026-10-21 13:28:53.525006
+all days inside 2023,gold,0,0,pass,"brief, rule 6",2026-10-21 13:28:53.525006
+"daily compensation within [0, cap]",gold,0,0,pass,"brief, rule 4",2026-10-21 13:28:53.525006
+model B never exceeds model A,gold,0,0,pass,,2026-10-21 13:28:53.525006
+totals reconcile: business-days = per-business = per-street,gold,8961475700.00 / 8961475700.00 / 8961475700.00,equal,pass,,2026-10-21 13:28:53.525006
+businesses landed == server count,bronze,37356,37356,pass,the API caps responses at 2000; a single call would return ~5% of rows,2026-10-21 13:28:53.525006
+closures rows landed > 0,bronze,2006,> 0,pass,,2026-10-21 13:28:53.525006
+business_id unique,silver,0,0,pass,,2026-10-21 13:28:53.525006
+business categories mapped,silver,0,0,pass,,2026-10-21 13:28:53.525006
+businesses with area <= 0 or null,silver,1,info,pass,they receive 0 compensation,2026-10-21 13:28:53.525006
+closure start dates parsed,silver,0,0,pass,,2026-10-21 13:28:53.525006
+closures rejected: no_valid_street,silver,133,info,pass,,2026-10-21 13:28:53.525006
+closures rejected: duplicate_event,silver,67,info,pass,,2026-10-21 13:28:53.525006

@@ -1,0 +1,157 @@
+{
+  "source": "https://gisn.tel-aviv.gov.il/arcgis/rest/services/IView2/MapServer/925/query",
+  "run_utc": "20261021T125610Z",
+  "fields_requested": [
+    "OBJECTID",
+    "id_esek",
+    "shimush",
+    "shem_rechov",
+    "ms_bayit",
+    "tr_hakama",
+    "sw_taun_rishui",
+    "shetach",
+    "x_coord",
+    "y_coord",
+    "date_import"
+  ],
+  "pii_included": false,
+  "expected_count": 37356,
+  "features_downloaded": 37356,
+  "unique_objectids": 37356,
+  "pages": 19,
+  "files": [
+    {
+      "file": "businesses_page_0000.json",
+      "features": 2000,
+      "min_oid": 1,
+      "max_oid": 2000,
+      "sha256": "140e884ea221cb8b4012d62bc623189450e27027f4411c557a4d370e8f61a9b2"
+    },
+    {
+      "file": "businesses_page_0001.json",
+      "features": 2000,
+      "min_oid": 2001,
+      "max_oid": 4000,
+      "sha256": "5300927fcc8c4fd0cbd562601189a9b21a13ac2f62cddc7551fde2681256906e"
+    },
+    {
+      "file": "businesses_page_0002.json",
+      "features": 2000,
+      "min_oid": 4001,
+      "max_oid": 6000,
+      "sha256": "2b8d177ad4a54de25f51d860293f88d910bbc1638d71daf48be9f51f0b9738b8"
+    },
+    {
+      "file": "businesses_page_0003.json",
+      "features": 2000,
+      "min_oid": 6001,
+      "max_oid": 8000,
+      "sha256": "e03526035ecbf30011daba0c377a4b1f95a48cc725fd5dd6889396499244867f"
+    },
+    {
+      "file": "businesses_page_0004.json",
+      "features": 2000,
+      "min_oid": 8001,
+      "max_oid": 10000,
+      "sha256": "5efd9699d5df034fb6a85f79c4a214a3ebfd48c5602e270531829bc042a61c0f"
+    },
+    {
+      "file": "businesses_page_0005.json",
+      "features": 2000,
+      "min_oid": 10001,
+      "max_oid": 12000,
+      "sha256": "c2ad3704b9c1baf1103f40696586aab72bd67c00139e192bd20a4f9f735f078f"
+    },
+    {
+      "file": "businesses_page_0006.json",
+      "features": 2000,
+      "min_oid": 12001,
+      "max_oid": 14000,
+      "sha256": "55f40fa0991c9bf6799e13bf120a7145d71fea4011a09635b6b3d7b264d8945b"
+    },
+    {
+      "file": "businesses_page_0007.json",
+      "features": 2000,
+      "min_oid": 14001,
+      "max_oid": 16000,
+      "sha256": "a1bbc1fa8adcda61fc39ac4ed16a8120c4380697c66a4f15cfc8c60e00ffbae7"
+    },
+    {
+      "file": "businesses_page_0008.json",
+      "features": 2000,
+      "min_oid": 16001,
+      "max_oid": 18000,
+      "sha256": "8200d9f96d918cf7d9f295795cc131fdba70005d5fbf1a35cf7e7090300874a9"
+    },
+    {
+      "file": "businesses_page_0009.json",
+      "features": 2000,
+      "min_oid": 18001,
+      "max_oid": 20000,
+      "sha256": "dc180375c7c6fce2176e86b6cb5c65ea8ba0decc7775082a005432d445ded644"
+    },
+    {
+      "file": "businesses_page_0010.json",
+      "features": 2000,
+      "min_oid": 20001,
+      "max_oid": 22000,
+      "sha256": "74337b2066a45e49e2e80cecc9714dfee567c054afc3cfd22a8ee99f34eb02c8"
+    },
+    {
+      "file": "businesses_page_0011.json",
+      "features": 2000,
+      "min_oid": 22001,
+      "max_oid": 24000,
+      "sha256": "77010fcf054652dd5f4211324f95b88ed24e84657a1d503e631b46867962290c"
+    },
+    {
+      "file": "businesses_page_0012.json",
+      "features": 2000,
+      "min_oid": 24001,
+      "max_oid": 26000,
+      "sha256": "04ce1875e8579ec2b5c870150dec3936045fb8f620b0483bfa2e8ae2f83393bb"
+    },
+    {
+      "file": "businesses_page_0013.json",
+      "features": 2000,
+      "min_oid": 26001,
+      "max_oid": 28000,
+      "sha256": "6afa8ae41fb71063e471d8fae177673383b1504eb783a09a36e3b1977d8a8f0c"
+    },
+    {
+      "file": "businesses_page_0014.json",
+      "features": 2000,
+      "min_oid": 28001,
+      "max_oid": 30000,
+      "sha256": "75604f0b566d58bc4f3b66ae2b24490174e370825f0a7cd95f92ce54502a62ad"
+    },
+    {
+      "file": "businesses_page_0015.json",
+      "features": 2000,
+      "min_oid": 30001,
+      "max_oid": 32000,
+      "sha256": "48eaba0a910794b36b7f48d44049bfc972fe36336786e750db5b3d578c74abcf"
+    },
+    {
+      "file": "businesses_page_0016.json",
+      "features": 2000,
+      "min_oid": 32001,
+      "max_oid": 34000,
+      "sha256": "09e859f760927c9791065714b6879f6439c9c1cee1f3ad49138effe8defb457f"
+    },
+    {
+      "file": "businesses_page_0017.json",
+      "features": 2000,
+      "min_oid": 34001,
+      "max_oid": 36000,
+      "sha256": "cbf9bd003b9fa102f98807b737b8d06330cd602d5f20b2151ae1d30d2bf8a4ae"
+    },
+    {
+      "file": "businesses_page_0018.json",
+      "features": 1356,
+      "min_oid": 36001,
+      "max_oid": 37356,
+      "sha256": "81f37fe0915d88c02344762c68b8c05b2a9958435596b60083c3c97ea5ae258e"
+    }
+  ]
+}
