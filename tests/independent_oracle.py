@@ -10,7 +10,7 @@ def skey(name, code):
     n = norm(name)
     return None if (n in (None, "0") or str(code).strip() == "0") else n
 def factor(h, t0=480, t1=1200):
-    m = re.match(r"^\s*(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})", h or "")
+    m = re.search(r"(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})", h or "")
     if not m: return 1.0
     s, e = int(m[1]) * 60 + int(m[2]), int(m[3]) * 60 + int(m[4])
     if s == e: return 1.0

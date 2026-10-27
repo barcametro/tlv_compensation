@@ -16,7 +16,8 @@ from .config import Config
 from .normalize import clean_text, street_key, strip_wrapping_quotes
 from .storage import Store
 
-_HOURS = r"'^\\s*(\\d{1,2}):(\\d{2})\\s*-\\s*(\\d{1,2}):(\\d{2})'"
+# first HH:MM-HH:MM window anywhere in the text ("מסיבת פורים משעה 08:00-18:00" has text before it)
+_HOURS = r"'(\\d{1,2}):(\\d{2})\\s*-\\s*(\\d{1,2}):(\\d{2})'"
 
 
 def trading_hours_factor(col: str, cfg: Config) -> F.Column:

@@ -60,6 +60,7 @@ def test_strip_wrapping_quotes_keeps_internal_quotes(spark):
     ("21:00-05:00", 0.0),              # night only
     ("20:00-14:00", 0.5),              # wraps midnight -> covers 08-14
     ("17:00-09:00", 4 / 12),           # 17-20 plus 08-09
+    ("מסיבת פורים משעה 08:00-14:00", 0.5),  # window after leading text
     ("", 1.0), (None, 1.0),            # unknown -> benefit of the doubt
 ])
 def test_trading_hours_factor(spark, cfg, hours, expected):
