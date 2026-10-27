@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import sys
 import time
 
 from pyspark.sql import SparkSession
@@ -59,6 +60,11 @@ def main(argv=None):
     print(f"quality passed  {time.time() - t:6.1f}s")
     insights.write(spark, cfg)
     print(f"insights written -> {cfg.base_path}/insights.json")
+    dash = os.path.join(cfg.root, "dashboard")
+    if os.path.isfile(os.path.join(dash, "build_dashboard.py")):
+        sys.path.insert(0, dash)
+        import build_dashboard
+        print(f"dashboard rebuilt -> {build_dashboard.build(os.path.join(cfg.base_path, 'insights.json'))}")
     if not a.no_export and cfg.storage_format == "parquet":
         export_csv(Store(spark, cfg), os.path.join(cfg.base_path, "exports"))
         print(f"exported CSVs -> {os.path.join(cfg.base_path, 'exports')}")

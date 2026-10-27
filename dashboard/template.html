@@ -1,0 +1,314 @@
+<title>Tel Aviv Closure Compensation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Hebrew:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#f4f4f1; --surface:#fcfcfb; --surface-2:#efeeea; --rule:#dedcd6; --grid:#e8e7e2;
+  --ink:#0b0b0b; --ink-2:#52514e; --ink-3:#7a7974;
+  --a:#2a78d6; --b:#eb6834; --step:#a9a7a0;
+  --good:#0ca30c; --warn:#fab219; --crit:#d03b3b;
+  --sans:"IBM Plex Sans","IBM Plex Sans Hebrew",-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121211; --surface:#1a1a19; --surface-2:#242422; --rule:#33332f; --grid:#2a2a27;
+  --ink:#f0efec; --ink-2:#c3c2b7; --ink-3:#8f8e86; --a:#3987e5; --b:#d95926; --step:#6c6b64;}}
+:root[data-theme="dark"]{
+  --bg:#121211; --surface:#1a1a19; --surface-2:#242422; --rule:#33332f; --grid:#2a2a27;
+  --ink:#f0efec; --ink-2:#c3c2b7; --ink-3:#8f8e86; --a:#3987e5; --b:#d95926; --step:#6c6b64;}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.5;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:28px 64px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 28px;margin-bottom:22px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+h1{font-size:clamp(24px,3.6vw,32px);font-weight:700;letter-spacing:-.015em;margin:4px 0 6px;text-wrap:balance}
+.sub{color:var(--ink-2);max-width:70ch;margin:0}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.sw{width:12px;height:12px;border-radius:3px;display:inline-block}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:16px}
+.kpi{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:14px 16px}
+.kpi .l{font-size:12px;color:var(--ink-2);display:flex;align-items:center;gap:7px}
+.kpi .v{font-family:var(--mono);font-size:24px;font-weight:500;margin-top:4px;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.kpi .n{font-size:12px;color:var(--ink-3);margin-top:2px}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:18px 18px 12px;min-width:0}
+.c12{grid-column:span 12}.c7{grid-column:span 7}.c5{grid-column:span 5}.c6{grid-column:span 6}
+@media (max-width:880px){.c7,.c5,.c6{grid-column:span 12}}
+.card h2{font-size:15px;font-weight:600;margin:0 0 2px}
+.card .d{font-size:12.5px;color:var(--ink-2);margin:0 0 10px;max-width:72ch}
+.chart{width:100%;position:relative}
+svg text{fill:var(--ink-2);font-family:var(--sans);font-size:11.5px}
+svg .val{fill:var(--ink);font-family:var(--mono);font-size:11px}
+svg .grid{stroke:var(--grid);stroke-width:1}
+svg .axis{stroke:var(--rule);stroke-width:1}
+svg .note{fill:var(--ink-3);font-size:11px}
+svg rect.hit{fill:transparent;cursor:default}
+details{margin-top:6px;font-size:12.5px;color:var(--ink-2)}
+summary{cursor:pointer;color:var(--ink-3);font-size:12px;padding:4px 0}
+summary:focus-visible{outline:2px solid var(--a);outline-offset:2px;border-radius:3px}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th{text-align:left;font-weight:500;color:var(--ink-3);font-size:11.5px;padding:6px 8px;border-bottom:1px solid var(--rule);white-space:nowrap}
+td{padding:6px 8px;border-bottom:1px solid var(--grid);color:var(--ink);vertical-align:top}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+td.he{unicode-bidi:plaintext}
+tr:last-child td{border-bottom:0}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;padding:1px 8px;border-radius:99px;background:var(--surface-2);white-space:nowrap}
+.chip i{width:7px;height:7px;border-radius:50%;display:inline-block}
+.insights{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px 22px;margin:0;padding:0;list-style:none}
+.insights li{border-top:1px solid var(--rule);padding-top:10px}
+.insights b{display:block;font-family:var(--mono);font-size:18px;font-weight:500;margin-bottom:2px}
+.insights span{color:var(--ink-2);font-size:13px}
+#tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--surface);font-size:12px;
+  padding:7px 9px;border-radius:7px;max-width:260px;z-index:10;line-height:1.4;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+#tip .t{font-weight:600;margin-bottom:2px;unicode-bidi:plaintext}
+#tip .m{font-family:var(--mono)}
+footer{margin-top:22px;font-size:12px;color:var(--ink-3);max-width:90ch}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">2023 · Street-closure compensation · Tel Aviv-Yafo</div>
+      <h1>Tel Aviv Closure Compensation</h1>
+      <p class="sub">Computed by a PySpark medallion pipeline from 2,006 closure records and 37,356 businesses. Model A applies the brief's rules literally; Model B removes non-trading premises, days before a business existed, and closed hours outside trading time.</p>
+    </div>
+    <div class="legend" aria-label="Series">
+      <span><i class="sw" style="background:var(--a)"></i>Model A — literal rule</span>
+      <span><i class="sw" style="background:var(--b)"></i>Model B — adjusted</span>
+    </div>
+  </header>
+
+  <section class="kpis" id="kpis" aria-label="Key figures"></section>
+
+  <div class="grid">
+    <section class="card c7">
+      <h2>From the literal rule to an adjusted model</h2>
+      <p class="d">Each step removes compensation the literal rule pays for something that did not lose trade. The largest correction is timing: the business list is a 2026 snapshot.</p>
+      <div class="chart" id="bridge"></div>
+      <details><summary>Show as table</summary><div class="tw" id="bridge-t"></div></details>
+    </section>
+    <section class="card c5">
+      <h2>What the data says</h2>
+      <p class="d">Derived from the gold tables on every pipeline run.</p>
+      <ul class="insights" id="insights"></ul>
+    </section>
+
+    <section class="card c12">
+      <h2>Compensation by month</h2>
+      <p class="d">Both models fall steadily through the year as long-running works end. The Red Line light rail opened to passengers on 18 August 2023.</p>
+      <div class="chart" id="monthly"></div>
+      <details><summary>Show as table</summary><div class="tw" id="monthly-t"></div></details>
+    </section>
+
+    <section class="card c7">
+      <h2>Top 10 streets — annual compensation</h2>
+      <p class="d">Rule 5 makes every business on either named street eligible, not just those at the closed segment — so long central streets dominate.</p>
+      <div class="chart" id="streets"></div>
+      <details><summary>Show as table</summary><div class="tw" id="streets-t"></div></details>
+    </section>
+    <section class="card c5">
+      <h2>By closure type</h2>
+      <p class="d">A business-day is attributed to the closure type covering most trading hours that day.</p>
+      <div class="chart" id="types"></div>
+      <details><summary>Show as table</summary><div class="tw" id="types-t"></div></details>
+    </section>
+
+    <section class="card c6">
+      <h2>Paid to non-trading premises under Model A</h2>
+      <p class="d">Premises that don't trade from the address: transformer rooms, warehouses, parking, closed units, municipal and religious buildings. Model B pays them nothing; the list is a config file, not code.</p>
+      <div class="tw" id="nontrading"></div>
+    </section>
+    <section class="card c6">
+      <h2>Data quality — latest run</h2>
+      <p class="d">Hard checks stop the scheduled job; warnings and info rows are reported.</p>
+      <div class="tw" id="dq"></div>
+    </section>
+  </div>
+
+  <footer>All amounts in ILS. Model A: min(100 × area_sqm, 10,000) per business per day its street appears in a closure overlapping 2023. Model B: Model A × trading-hours share (08:00–20:00), only for trading premises and only on days on or after the establishment date. Totals reconcile across business-day, business and street grains, and are cross-checked against an independent implementation.</footer>
+</div>
+<div id="tip" hidden></div>
+
+<script>
+const D = __DATA__;
+const $ = s => document.querySelector(s);
+const NS = "http://www.w3.org/2000/svg";
+const fmt = new Intl.NumberFormat("en-US");
+const ils = v => { const a = Math.abs(v);
+  if (a >= 1e9) return (v/1e9).toFixed(2) + "B";
+  if (a >= 1e6) return Math.round(v/1e6).toLocaleString("en-US") + "M";
+  if (a >= 1e3) return Math.round(v/1e3).toLocaleString("en-US") + "K";
+  return fmt.format(Math.round(v)); };
+const full = v => fmt.format(Math.round(v));
+
+function el(tag, attrs = {}, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+// bar with 4px rounded data-end, square at the baseline
+function bar(g, x, y, w, h, color, dir = "up") {
+  const r = Math.min(4, w / 2, h / 2);
+  let d;
+  if (h <= 0 || w <= 0) return null;
+  if (dir === "up") d = `M${x},${y+h}V${y+r}Q${x},${y} ${x+r},${y}H${x+w-r}Q${x+w},${y} ${x+w},${y+r}V${y+h}Z`;
+  else d = `M${x},${y}H${x+w-r}Q${x+w},${y} ${x+w},${y+r}V${y+h-r}Q${x+w},${y+h} ${x+w-r},${y+h}H${x}Z`;
+  return el("path", { d, fill: color }, g);
+}
+const tip = $("#tip");
+function hover(target, title, lines) {
+  target.addEventListener("pointermove", e => {
+    tip.innerHTML = `<div class="t"></div>` + lines.map(() => `<div class="m"></div>`).join("");
+    tip.querySelector(".t").textContent = title;
+    tip.querySelectorAll(".m").forEach((n, i) => n.textContent = lines[i]);
+    tip.hidden = false;
+    const x = Math.min(e.clientX + 14, innerWidth - tip.offsetWidth - 8);
+    const y = Math.min(e.clientY + 14, innerHeight - tip.offsetHeight - 8);
+    tip.style.left = x + "px"; tip.style.top = y + "px";
+  });
+  target.addEventListener("pointerleave", () => tip.hidden = true);
+}
+const labelW = arr => 14 + Math.max(...arr.map(s => String(s).length)) * 6.4;
+function niceMax(v) { const p = Math.pow(10, Math.floor(Math.log10(v))); const n = v / p;
+  return (n <= 1 ? 1 : n <= 2 ? 2 : n <= 2.5 ? 2.5 : n <= 5 ? 5 : 10) * p; }
+function table(sel, cols, rows) {
+  const t = document.createElement("table");
+  t.innerHTML = "<thead><tr>" + cols.map(c => `<th class="${c.num ? "num" : ""}">${c.h}</th>`).join("") + "</tr></thead>";
+  const tb = document.createElement("tbody");
+  rows.forEach(r => { const tr = document.createElement("tr");
+    cols.forEach(c => { const td = document.createElement("td");
+      if (c.num) td.className = "num"; if (c.he) td.className = "he";
+      const v = c.f ? c.f(r) : r[c.k];
+      if (v instanceof Node) td.appendChild(v); else td.textContent = v;
+      tr.appendChild(td); });
+    tb.appendChild(tr); });
+  t.appendChild(tb); const host = $(sel); host.innerHTML = ""; host.appendChild(t);
+}
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+// ---------------------------------------------------------------- KPIs + insights
+function kpis() {
+  const k = D.kpi;
+  const items = [
+    ["Model A total", ils(k.total_model_a), "literal rule", "var(--a)"],
+    ["Model B total", ils(k.total_model_b), `${k.model_b_pct_of_a}% of Model A`, "var(--b)"],
+    ["Businesses compensated", fmt.format(k.businesses_affected), `on ${k.streets_compensated} streets`],
+    ["Cost per sqm (A)", fmt.format(k.cost_per_sqm_model_a) + " ₪", "total ÷ affected floor area"],
+    ["At the daily cap", k.pct_businesses_at_cap + "%", `${fmt.format(k.businesses_at_cap)} businesses ≥ 100 sqm`],
+  ];
+  $("#kpis").innerHTML = items.map(([l, v, n, c]) =>
+    `<div class="kpi"><div class="l">${c ? `<i class="sw" style="background:${c}"></i>` : ""}${l}</div><div class="v">${v}</div><div class="n">${n}</div></div>`).join("");
+  const late = k.established_after_year;
+  const ins = [
+    [ils(late.total_model_a), `paid under Model A to ${fmt.format(late.businesses)} businesses established after ${D.year}`],
+    [k.top5_street_share_pct + "%", "of Model A goes to just five streets"],
+    [k.pct_spend_at_cap + "%", `of Model A goes to the ${k.pct_businesses_at_cap}% of businesses at the 10,000 ₪ cap`],
+    [fmt.format(k.median_days_affected) + " days", `median closure exposure; the median business gets ${ils(k.median_business_model_a)} ₪ under A`],
+  ];
+  $("#insights").innerHTML = ins.map(([b, s]) => `<li><b>${b}</b><span>${s}</span></li>`).join("");
+}
+
+// ---------------------------------------------------------------- A -> B bridge (horizontal)
+function bridge() {
+  const host = $("#bridge"); host.innerHTML = "";
+  const W = host.clientWidth, rowH = 34, padL = Math.min(W * .48, labelW(D.model_a_to_b.map(s => s.step))), padR = 64, H = D.model_a_to_b.length * rowH + 22;
+  const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: "img",
+    "aria-label": "Bridge from Model A to Model B" }, host);
+  const max = D.model_a_to_b[0].value, x = v => padL + (W - padL - padR) * v / max;
+  let run = max;
+  D.model_a_to_b.forEach((s, i) => {
+    const y = i * rowH + 6, h = rowH - 12;
+    const t = el("text", { x: padL - 10, y: y + h / 2 + 4, "text-anchor": "end" }, svg); t.textContent = s.step;
+    let x0, x1, color;
+    if (i === 0) { x0 = 0; x1 = s.value; color = css("--a"); }
+    else if (i === D.model_a_to_b.length - 1) { x0 = 0; x1 = s.value; color = css("--b"); }
+    else { x0 = run + s.value; x1 = run; run += s.value; color = css("--step"); }
+    bar(svg, x(x0), y, Math.max(1, x(x1) - x(x0)), h, color, "right");
+    const v = el("text", { x: x(x1) + 6, y: y + h / 2 + 4, class: "val" }, svg);
+    v.textContent = (i > 0 && i < D.model_a_to_b.length - 1 ? "−" + ils(-s.value) : ils(s.value));
+    const hit = el("rect", { x: 0, y: y - 4, width: W, height: rowH, class: "hit" }, svg);
+    hover(hit, s.step, [full(s.value) + " ₪", (100 * Math.abs(s.value) / max).toFixed(1) + "% of Model A"]);
+  });
+  table("#bridge-t", [{ h: "Step", k: "step" }, { h: "ILS", num: 1, f: r => full(r.value) }], D.model_a_to_b);
+}
+
+// ---------------------------------------------------------------- monthly grouped columns
+function monthly() {
+  const host = $("#monthly"); host.innerHTML = "";
+  const W = host.clientWidth, H = 260, pl = 44, pr = 8, pt = 18, pb = 26;
+  const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Monthly compensation, Model A and Model B" }, host);
+  const ms = D.monthly, max = niceMax(Math.max(...ms.map(m => m.a)));
+  const y = v => pt + (H - pt - pb) * (1 - v / max), band = (W - pl - pr) / ms.length;
+  for (let i = 0; i <= 4; i++) { const v = max * i / 4, yy = y(v);
+    el("line", { x1: pl, x2: W - pr, y1: yy, y2: yy, class: i ? "grid" : "axis" }, svg);
+    const t = el("text", { x: pl - 6, y: yy + 4, "text-anchor": "end" }, svg); t.textContent = ils(v); }
+  const names = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const gap = 2, bw = Math.max(3, Math.min(22, (band * .72 - gap) / 2));
+  ms.forEach((m, i) => {
+    const cx = pl + band * i + band / 2;
+    bar(svg, cx - bw - gap / 2, y(m.a), bw, y(0) - y(m.a), css("--a"));
+    bar(svg, cx + gap / 2, y(m.b), bw, y(0) - y(m.b), css("--b"));
+    const t = el("text", { x: cx, y: H - 8, "text-anchor": "middle" }, svg); t.textContent = names[+m.month.slice(5) - 1];
+    const hit = el("rect", { x: pl + band * i, y: pt, width: band, height: H - pt - pb, class: "hit" }, svg);
+    hover(hit, `${names[+m.month.slice(5) - 1]} ${m.month.slice(0, 4)}`,
+      [`A  ${full(m.a)} ₪`, `B  ${full(m.b)} ₪`, `${fmt.format(m.businesses)} businesses`]);
+  });
+  // Red Line opening marker: 18 August
+  const xa = pl + band * 7 + band * (17 / 31);
+  el("line", { x1: xa, x2: xa, y1: pt - 6, y2: y(0), stroke: css("--ink-3"), "stroke-dasharray": "3 3" }, svg);
+  const n = el("text", { x: xa + 5, y: pt + 2, class: "note" }, svg); n.textContent = "Red Line opens";
+  const first = ms[0], last = ms[ms.length - 1];
+  const t1 = el("text", { x: pl + band / 2, y: y(first.a) - 6, "text-anchor": "middle", class: "val" }, svg); t1.textContent = ils(first.a);
+  const t2 = el("text", { x: pl + band * 11.5 - bw / 2, y: y(last.a) - 6, "text-anchor": "middle", class: "val" }, svg); t2.textContent = ils(last.a);
+  table("#monthly-t", [{ h: "Month", k: "month" }, { h: "Model A", num: 1, f: r => full(r.a) }, { h: "Model B", num: 1, f: r => full(r.b) },
+    { h: "Businesses", num: 1, f: r => fmt.format(r.businesses) }], ms);
+}
+
+// ---------------------------------------------------------------- horizontal paired bars
+function hbars(sel, rows, label, titleOf, extra) {
+  const host = $(sel); host.innerHTML = "";
+  const W = host.clientWidth, rowH = 30, padL = Math.min(W * .45, labelW(rows.map(label))), padR = 52, H = rows.length * rowH + 8;
+  const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": sel.slice(1) }, host);
+  const max = Math.max(...rows.map(r => r.a)), x = v => padL + (W - padL - padR) * v / max;
+  el("line", { x1: padL, x2: padL, y1: 0, y2: H - 6, class: "axis" }, svg);
+  rows.forEach((r, i) => {
+    const y = i * rowH + 4, h = (rowH - 10) / 2;
+    const t = el("text", { x: padL - 8, y: y + h + 3, "text-anchor": "end", direction: "auto" }, svg);
+    t.textContent = label(r); t.style.unicodeBidi = "plaintext";
+    bar(svg, padL, y, x(r.a) - padL, h, css("--a"), "right");
+    bar(svg, padL, y + h + 2, x(r.b) - padL, h, css("--b"), "right");
+    const v = el("text", { x: x(r.a) + 5, y: y + h - 1, class: "val" }, svg); v.textContent = ils(r.a);
+    const hit = el("rect", { x: 0, y: y - 2, width: W, height: rowH, class: "hit" }, svg);
+    hover(hit, titleOf(r), [`A  ${full(r.a)} ₪`, `B  ${full(r.b)} ₪`, ...extra(r)]);
+  });
+}
+
+function render() {
+  bridge(); monthly();
+  hbars("#streets", D.top_streets, r => r.street, r => r.street,
+    r => [`${r.closed_days} closed days · ${fmt.format(r.businesses)} businesses`, `${fmt.format(Math.round(r.cost_per_sqm_a))} ₪ per sqm (A)`]);
+  hbars("#types", D.closure_types.filter(r => r.a > 0), r => r.type, r => `${r.type} · ${r.type_he}`, r => [`${r.streets} streets`]);
+}
+kpis(); render();
+table("#streets-t", [{ h: "Street", k: "street", he: 1 }, { h: "Closed days", num: 1, k: "closed_days" },
+  { h: "Businesses", num: 1, k: "businesses" }, { h: "Model A", num: 1, f: r => full(r.a) }, { h: "Model B", num: 1, f: r => full(r.b) },
+  { h: "₪ / sqm (A)", num: 1, f: r => full(r.cost_per_sqm_a) }], D.top_streets);
+table("#types-t", [{ h: "Type", k: "type" }, { h: "Hebrew", k: "type_he", he: 1 }, { h: "Streets", num: 1, k: "streets" },
+  { h: "Model A", num: 1, f: r => full(r.a) }, { h: "Model B", num: 1, f: r => full(r.b) }], D.closure_types);
+const GROUP = { storage_parking: "Storage & free parking", closed: "Closed / not in use", technical_land: "Technical rooms & land",
+  municipal_public: "Municipal & public bodies", places_of_worship: "Places of worship" };
+table("#nontrading", [{ h: "Group", f: r => GROUP[r.group] || r.group }, { h: "Businesses", num: 1, f: r => fmt.format(r.businesses) },
+  { h: "Model A paid", num: 1, f: r => full(r.a) }], D.non_trading);
+const STATUS = { pass: ["Pass", "var(--good)"], warn: ["Warning", "var(--warn)"], fail: ["Fail", "var(--crit)"] };
+const order = { fail: 0, warn: 1, pass: 2 };
+table("#dq", [{ h: "Check", k: "check" }, { h: "Layer", k: "layer" }, { h: "Observed", num: 1, f: r => r.observed.includes(" / ") ? "3 × " + ils(+r.observed.split(" / ")[0]) : r.observed },
+  { h: "Status", f: r => { const s = document.createElement("span"); s.className = "chip";
+    const [l, c] = STATUS[r.status] || [r.status, "var(--ink-3)"];
+    s.innerHTML = `<i style="background:${c}"></i>`; s.append(l); return s; } }],
+  [...D.dq].sort((a, b) => order[a.status] - order[b.status] || a.layer.localeCompare(b.layer)));
+let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(render, 120); });
+</script>

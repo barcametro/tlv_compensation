@@ -212,7 +212,7 @@ How each adjustment moves the total:
 |---|---|
 | **Databricks** | `notebooks/` are thin wrappers over the same package the local run and the tests use, writing Unity Catalog Delta tables |
 | **Scheduler** | `databricks.yml` is an Asset Bundle with a 5-task job (setup → bronze → silver → gold → quality), running daily at 06:00 Asia/Jerusalem on serverless, with the quality task as the gate. The `dev` target pauses the schedule and the `prod` target runs it |
-| **Dashboard** | `dashboard/index.html` is a standalone dashboard built from this run. `dashboard/queries.sql` holds the datasets for a Databricks AI/BI dashboard |
+| **Dashboard** | `dashboard/index.html` is a standalone dashboard, rebuilt from `output/insights.json` on every local run (`dashboard/build_dashboard.py`). `dashboard/queries.sql` holds the datasets for a Databricks AI/BI dashboard, which reads the gold tables directly |
 | **Insights** | `tlv_pipeline.insights`, recomputed on every run into `output/insights.json`; summarised above |
 
 ---
@@ -234,7 +234,7 @@ ingest/          download_businesses.py — paginated, retrying, self-verifying 
 src/tlv_pipeline bronze · silver · gold · quality · insights · storage · normalize · config · run · databricks
 notebooks/       00_setup … 04_quality — Databricks notebook tasks
 tests/           test_pipeline.py · independent_oracle.py
-dashboard/       index.html (dashboard) · queries.sql (Databricks AI/BI datasets)
+dashboard/       template.html + build_dashboard.py → index.html · queries.sql (Databricks AI/BI datasets)
 landing/         the raw files this run used
 output/          parquet tables by layer · exports/*.csv · insights.json
 databricks.yml   Asset Bundle: scheduled job
