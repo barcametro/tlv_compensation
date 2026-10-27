@@ -52,14 +52,17 @@ def run(spark: SparkSession, cfg: Config, raise_on_fail: bool = True) -> DataFra
         status = "pass" if ok else severity
         rows.append((name, layer, str(observed), str(expected), status, detail))
 
+    # Bronze keeps every landed run, so compare the LATEST run with the LATEST manifest.
+    # Counting all of bronze would fail the gate as soon as a second download lands.
     exp = _expected_business_count(spark, cfg)
-    n_bz = bz_b.count()
+    latest_run = bz_b.agg(F.max("_run_id")).first()[0]
+    n_bz = bz_b.filter(F.col("_run_id") == latest_run).count() if latest_run else bz_b.count()
     if exp is None:
-        check("businesses landed == server count", "bronze", n_bz, "manifest missing", False,
+        check("businesses landed == server count (latest run)", "bronze", n_bz, "manifest missing", False,
               "no download manifest found; completeness cannot be verified", severity="warn")
     else:
-        check("businesses landed == server count", "bronze", n_bz, exp, n_bz == exp,
-              "the API caps responses at 2000; a single call would return ~5% of rows")
+        check("businesses landed == server count (latest run)", "bronze", n_bz, exp, n_bz == exp,
+              f"run {latest_run}; the API caps responses at 2000, a single call returns ~5% of rows")
     check("closures rows landed > 0", "bronze", bz_c.count(), "> 0", bz_c.count() > 0)
 
     n_sv, n_ids = sv_b.count(), sv_b.select("business_id").distinct().count()

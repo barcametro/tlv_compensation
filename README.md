@@ -199,6 +199,7 @@ How each adjustment moves the total:
   - daily amount within [0, cap]
   - Model B never above Model A
   - totals reconciling across the business-day, business and street grains
+- **Completeness is checked per download.** Bronze keeps every landed run, so the count check compares the latest run with the latest manifest. Comparing all of bronze would fail the gate the day a second download lands.
 - **A missing manifest is a warning, not a pass.** An early version passed silently when the manifest couldn't be found, because Spark hides files starting with `_`. The file was renamed and the check fixed.
 - **14 unit tests** (`tests/test_pipeline.py`). They cover normalisation, the trading-hours factor (including windows that cross midnight), every cleaning rule, and the compensation rules on hand-built inputs (year clipping, once per day, the cap, eligibility, establishment date), plus an end-to-end comparison with the independent oracle.
 - **Independent oracle** (`tests/independent_oracle.py`): plain Python, no Spark, reading straight from the raw landed files. It matches Model A exactly per business. It matches Model B to the agora once both round each day's payment.
