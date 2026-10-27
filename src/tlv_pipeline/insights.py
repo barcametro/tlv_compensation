@@ -48,6 +48,7 @@ def compute(spark: SparkSession, cfg: Config) -> dict:
     a_total = _f(k["a"])
     top5 = sum(_f(r["total_model_a"]) for r in top[:5])
     biggest = cb.orderBy(F.desc("total_model_a"), "business_id").first()
+    tied_at_max = cb.filter(F.col("total_model_a") == biggest["total_model_a"]).count()
 
     return {
         "year": cfg.year,
@@ -64,7 +65,8 @@ def compute(spark: SparkSession, cfg: Config) -> dict:
             "established_after_year": {"businesses": late["n"], "total_model_a": _f(late["a"])},
             "largest_single_business": {"business_id": biggest["business_id"], "street": biggest["street_name"],
                                         "category": biggest["category_en"], "area_sqm": biggest["area_sqm"],
-                                        "days": biggest["days_affected"], "total_model_a": _f(biggest["total_model_a"])},
+                                        "days": biggest["days_affected"], "total_model_a": _f(biggest["total_model_a"]),
+                                        "businesses_tied_at_this_amount": tied_at_max},
         },
         "model_a_to_b": [
             {"step": "Model A — literal rule", "value": _f(steps["a"])},
