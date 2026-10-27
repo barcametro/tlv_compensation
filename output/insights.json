@@ -25,7 +25,8 @@
       "category": "Offices",
       "area_sqm": 150,
       "days": 365,
-      "total_model_a": 3650000.0
+      "total_model_a": 3650000.0,
+      "businesses_tied_at_this_amount": 483
     }
   },
   "model_a_to_b": [
@@ -428,7 +429,7 @@
       "status": "pass"
     },
     {
-      "check": "businesses landed == server count",
+      "check": "businesses landed == server count (latest run)",
       "layer": "bronze",
       "observed": "37356",
       "expected": "37356",
@@ -479,7 +480,7 @@
     {
       "check": "closures rejected: duplicate_event",
       "layer": "silver",
-      "observed": "67",
+      "observed": "8",
       "expected": "info",
       "status": "pass"
     }
