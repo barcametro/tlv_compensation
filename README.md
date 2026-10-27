@@ -112,7 +112,7 @@ These came out of profiling the real files before writing the transformations. E
 - **Dates are `dd/MM/yyyy H:mm`.** Parsed with an explicit format, since a default parser silently swaps day and month. 6 rows have no end date, so the end date is set to the start date (as the brief says).
 - **The CSV escapes quotes by doubling them** (`תרס""ט`). Spark's default escape character is a backslash, so `escape='"'` is required.
 - **133 rows have no usable street at all**: code and name are both `0`. They are rejected with the reason recorded. Another 69 have street A but no street B, and keep A.
-- **67 rows duplicate another event**: identical streets, dates, type and hours, different `ID`. The first is kept. Rule 2 would absorb the duplicates anyway; the oracle, which skips this dedup, produces the same totals.
+- **8 rows duplicate another event**: same segment (`id_rechov`), streets, dates, type and hours, different `ID`. The first is kept. An earlier version left the segment out of the key and rejected 67 rows, but 59 of those were closures of *different* segments between the same two streets. Totals don't change either way, because rule 2 collapses everything to one payment per street per day; the oracle, which skips this dedup, produces the same totals.
 - **152 `sw_laila` values are corrupted.** Unescaped commas inside the hours text pushed free text into the column. They are set to NULL and flagged.
 - **Filter by overlap with 2023, not by start year.** 65 closures start in 2023, but 84 overlap it. The 19 that started earlier include the largest closures in the file, some running from mid-2020 to the end of 2023.
 

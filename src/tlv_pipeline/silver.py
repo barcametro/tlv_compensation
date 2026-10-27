@@ -83,8 +83,10 @@ def street_closures(bronze: DataFrame, cfg: Config) -> tuple[DataFrame, DataFram
     rejected = flagged.filter(F.col("reject_reason").isNotNull())
     valid = flagged.filter(F.col("reject_reason").isNull()).drop("reject_reason")
 
-    # the same event is sometimes entered twice (identical except for ID); keep the first
-    key = ["street_a", "street_b", "start_date", "end_date", "closure_type_code", "hours_text"]
+    # the same event is sometimes entered twice (identical except for ID); keep the first.
+    # segment_id is part of the key: rows with the same bounding streets but a different
+    # segment (id_rechov) are different closures, not duplicates.
+    key = ["segment_id", "street_a", "street_b", "start_date", "end_date", "closure_type_code", "hours_text"]
     w = Window.partitionBy(*key).orderBy("closure_id")
     valid = (valid.withColumn("_rn", F.row_number().over(w))
                   .withColumn("duplicate_of", F.when(F.col("_rn") > 1, F.first("closure_id").over(w))))
