@@ -83,8 +83,9 @@ def run(spark: SparkSession, cfg: Config, raise_on_fail: bool = True) -> DataFra
     check("sw_laila values corrupted by unescaped commas", "silver", corrupt, "info", True,
           "night_flag set to NULL on these rows")
 
+    unmatched = store.write(unmatched_streets(store, cfg), "gold", "dq_unmatched_streets")
     streets = sd.select("street_key").distinct().count()
-    um = unmatched_streets(store, cfg).count()
+    um = unmatched.count()
     rate = (streets - um) / streets if streets else 0
     check(f"{cfg.year} closure streets matched to businesses", "gold", f"{rate:.1%}",
           f">= {cfg.min_street_match_rate:.0%}", rate >= cfg.min_street_match_rate,
@@ -109,7 +110,6 @@ def run(spark: SparkSession, cfg: Config, raise_on_fail: bool = True) -> DataFra
     df = spark.createDataFrame([Row(check=r[0], layer=r[1], observed=r[2], expected=r[3],
                                     status=r[4], detail=r[5], run_at=run_at) for r in rows])
     store.write(df, "gold", "dq_results")
-    store.write(unmatched_streets(store, cfg), "gold", "dq_unmatched_streets")
 
     failed = [r for r in rows if r[4] == "fail"]
     if failed and raise_on_fail:
