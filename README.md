@@ -235,6 +235,7 @@ conf/            pipeline.yml (every business rule is a parameter) · category_m
 ingest/          download_businesses.py — paginated, retrying, self-verifying ArcGIS download
 src/tlv_pipeline bronze · silver · gold · quality · insights · storage · normalize · config · run · databricks
 notebooks/       00_setup … 04_quality — Databricks notebook tasks
+explore/         silver/gold step-by-step notebooks + SQL: every intermediate DataFrame shown and checked (not part of the job)
 tests/           test_pipeline.py · independent_oracle.py
 dashboard/       template.html + build_dashboard.py → index.html · queries.sql (Databricks AI/BI datasets)
 landing/         the raw files this run used
