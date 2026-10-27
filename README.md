@@ -31,7 +31,7 @@ The landing data from the run behind these results is already in `landing/`, so 
 **Databricks** (works on Free Edition, serverless):
 
 1. Push this repo to GitHub and add it as a Git folder (Workspace → Create → Git folder).
-2. Run `notebooks/00_setup.py`. It creates the schema `workspace.tlv` and the `landing` volume, then copies the repo's `landing/` files into the volume. It only copies files that aren't there yet, so it never overwrites data landed later.
+2. Run `notebooks/00_setup.py`. It creates the schema `workspace.tlv` and the `landing` volume, then copies the repo's `landing/` files (closures and businesses) into the volume. It only copies files that aren't there yet, so it never overwrites data landed later. The category map is configuration, so it's read from `conf/` in the repo, both locally and on Databricks.
 3. Run `01_bronze` → `04_quality` interactively, or deploy the scheduled job: `databricks bundle deploy -t dev` (schedule paused) or `-t prod` (schedule live), then `databricks bundle run tlv_compensation -t dev`.
 
 Each notebook finds the repo root by itself. It checks the `repo_root` job parameter first, then `sys.path`, then the notebook path, because the working directory of a serverless task isn't guaranteed. The notebooks were run locally against a mock `dbutils` and a Spark Connect session (the protocol serverless uses), with the working directory set to `/`, in both Git-folder and bundle layouts. Totals were identical.

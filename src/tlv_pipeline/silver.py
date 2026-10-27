@@ -7,6 +7,8 @@ where a single unparseable value would otherwise fail the whole job.
 """
 from __future__ import annotations
 
+import csv
+
 from pyspark.sql import DataFrame, SparkSession, Window
 from pyspark.sql import functions as F
 
@@ -141,10 +143,20 @@ def businesses(bronze: DataFrame, categories: DataFrame) -> DataFrame:
                   .withColumn("model_b_eligible", F.coalesce("model_b_eligible", F.lit(True))))
 
 
+def read_category_map(spark: SparkSession, path: str) -> DataFrame:
+    """The category map is configuration (191 rows), read from the repo with Python's csv
+    module. Same file locally and on Databricks (/Workspace/...), so editing
+    conf/category_map.csv is the only way to change Model B eligibility."""
+    with open(path, encoding="utf-8-sig", newline="") as fh:
+        rows = [(r["category_he"], r["category_en"], r["model_b_eligible"], r["exclusion_group"])
+                for r in csv.DictReader(fh)]
+    return spark.createDataFrame(
+        rows, "category_he string, category_en string, model_b_eligible string, exclusion_group string")
+
+
 def run(spark: SparkSession, cfg: Config) -> dict[str, DataFrame]:
     store = Store(spark, cfg)
-    categories = (spark.read.option("header", True).option("encoding", "UTF-8")
-                  .option("quote", '"').option("escape", '"').csv(cfg.category_map))
+    categories = read_category_map(spark, cfg.category_map)
     clean, rejected = street_closures(store.read("bronze", "street_closures"), cfg)
     out = {"street_closures": store.write(clean, "silver", "street_closures"),
            "street_closures_rejected": store.write(rejected, "silver", "street_closures_rejected")}

@@ -43,4 +43,4 @@ volume = os.path.dirname(cfg.businesses_dir)
 print(dbx.seed_landing(REPO_ROOT, volume))
 inv = dbx.landing_inventory(volume)
 print(inv)
-assert inv["closures"] >= 1 and inv["businesses"] >= 2 and inv["reference"] >= 1, f"landing volume incomplete: {inv}"
+assert inv["closures"] >= 1 and inv["businesses"] >= 2, f"landing volume incomplete: {inv}"

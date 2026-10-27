@@ -39,7 +39,7 @@ def cfg(dbutils, repo_root: str) -> config.Config:
         schema=w["schema"],
         closures_csv=f"{vol}/closures/rechov_sagur.csv",
         businesses_dir=f"{vol}/businesses",
-        category_map=f"{vol}/reference/category_map.csv",
+        # category_map stays conf/category_map.csv in the repo: it's configuration, not landed data
     )
 
 
@@ -68,7 +68,7 @@ def seed_landing(repo_root: str, volume: str) -> dict:
 def landing_inventory(volume: str) -> dict:
     """File counts per top-level landing folder, for a visible check after setup."""
     out = {}
-    for top in ("closures", "businesses", "reference"):
+    for top in ("closures", "businesses"):
         n = 0
         for _, _, files in os.walk(os.path.join(volume, top)):
             n += len(files)
