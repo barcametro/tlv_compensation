@@ -30,6 +30,7 @@ sys.path.insert(0, os.path.join(REPO_ROOT, "src"))
 
 from tlv_pipeline import databricks as dbx
 cfg = dbx.cfg(dbutils, REPO_ROOT)
+spark.conf.set("spark.sql.session.timeZone", "UTC")    # as in local runs: dates never depend on workspace settings
 print("repo:", REPO_ROOT, "| target:", f"{cfg.catalog}.{cfg.schema}", "| landing:", os.path.dirname(cfg.businesses_dir))
 
 # COMMAND ----------
