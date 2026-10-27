@@ -41,7 +41,8 @@ def closure_street_days(closure_streets: DataFrame, cfg: Config) -> DataFrame:
     return (days.groupBy("street_key", "day")
                 .agg(F.countDistinct("closure_id").alias("closures_that_day"),
                      F.max("trading_hours_factor").alias("trading_hours_factor"),
-                     F.max_by("closure_type", "trading_hours_factor").alias("primary_closure_type"),
+                     F.max_by("closure_type", F.struct("trading_hours_factor", "closure_id"))     # ties -> highest id
+                      .alias("primary_closure_type"),
                      F.sort_array(F.collect_set("closure_id")).alias("closure_ids")))
 
 
